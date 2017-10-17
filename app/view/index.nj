@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/css/style/left.css">
+    <link rel="stylesheet" href="../public/css/md/md-common.css">
+    <link rel="stylesheet" href="../public/css/md/github.css">
+    <style>
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="hljs">
+    <div class="left-col">
+        <div class="intrude-less">
+            <header id="header" class="inner">
+                <div class="profilepic">
+                    <a href="/" aria-label="Home"></a>
+                </div>
+                <h1>
+                    <a href="/">Gatinul</a>
+                    <a class='link' href="https://github.com/gatinul" target="_blank"><img src="../public/img/github.png"></a>
+                </h1>
+                <p class="subtitle">前端开发相关</p>
+                <nav id="main-nav">
+                    <div id="wrapper">
+                        <ul>
+                            <li class="on">
+                                <a href="/"><span>首页</span></a>
+                            </li>
+                            <li>
+                                <a href="/"><span>专题</span></a>
+                            </li>
+                            <li>
+                                <a href="/"><span>归档</span></a>
+                            </li>
+                            <li>
+                                <a href="/"><span>关于</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <canvas width="270" height="432"></canvas>
+            </header>
+        </div>
+    </div>
+    <div class="mid-col">
+        {{markdown | safe}}
+    </div>
+
+</body>
+<script src="../public/js/evan.min.js"></script>
+
+</html>
