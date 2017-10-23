@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="../public/css/style/left.css">
+    <link rel="stylesheet" href="../public/css/md/md-common.css">
+    <link rel="stylesheet" href="../public/css/md/github.css">
     <link rel="stylesheet" href="../public/css/style/blogList.css">
     <style>
         canvas {
@@ -21,7 +23,7 @@
     </style>
 </head>
 
-<body class="blogBody">
+<body class="hljs">
     <div class="left-col">
         <div class="intrude-less">
             <header id="header" class="inner">
@@ -56,17 +58,9 @@
         </div>
     </div>
     <div class="mid-col">
-        <div class="main">
-            <ul class='blogUl'>
-            </ul>
-            <a id="past" class="blog-nav">&lt;&nbsp;PAST</a>
-            <a id="pagation" class="blog-nav-page"></a>
-            <a id="future" class="blog-nav">FUTURE&nbsp;&gt;</a>
-        </div>
+        {{markdown | safe}} 
     </div>
 </body>
 <script src="../public/js/evan.min.js"></script>
-<script src="../public/js/blogList.js"></script>
-<script src="../public/js/tagList.js"></script>
 
 </html>

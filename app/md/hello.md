@@ -11,7 +11,7 @@
 | zebra stripes | are neat      |    $1 |
 
 
-you can `write` text [with links](http://example.com) 
+- you can `write` text [with links](http://example.com) 
 
 
 ```Diff

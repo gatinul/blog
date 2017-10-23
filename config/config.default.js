@@ -10,6 +10,16 @@ module.exports = appInfo => {
         path.join(appInfo.baseDir, 'app/md'),
       ].join(','),
     },
+    security: {
+      csrf: {
+        ignoreJSON: true,
+      },
+      doMainWhiteList: [ 'http://localhost:7002' ],
+    },
+    cors: {
+      allowMethods: 'GET, HEAD, PUT, POST, DELETE, PATCH, OPTIONS',
+      credentials: true,
+    },
   };
 
   // use for cookie sign key, should change to your own and keep security
