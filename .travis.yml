@@ -1,11 +1,11 @@
-sudo: false
 language: node_js
 node_js:
   - '6'
   - '8'
-install:
-  - npm i npminstall && npminstall
-script:
-  - npm run ci
-after_script:
-  - npminstall codecov && codecov
+before_install:
+- openssl aes-256-cbc -K $encrypted_1966350e4078_key -iv $encrypted_1966350e4078_iv
+  -in id_rsa.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+- echo -e "Host 59.110.233.80\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+after_success:
+- ssh root@59.110.233.80 'cd  /home/Blog && git pull origin master && npm run start'

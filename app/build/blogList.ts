@@ -14,6 +14,8 @@ interface GetBlogList {
 const ul:JQuery<HTMLElement> = $('.blogUl')
 const past:JQuery<HTMLElement> = $('#past')
 const future:JQuery<HTMLElement> = $('#future')
+const path:string = window.location.toString();
+
 
 let currentPage:number = 1;
 let totalPage:number = 1;
@@ -74,8 +76,8 @@ const app$ = init$.merge(past$, future$)
     return Rx.Observable.fromEvent($('.more'), 'click')
       .do((e)=>{
         const target = $(e.currentTarget)
-        console.log(target.text())
-        location.href=('http://localhost:7002/more/'+target.text())
+        console.log(target.text(), path)
+        location.href=(path + 'more/' + target.text())
       })
   })
 
