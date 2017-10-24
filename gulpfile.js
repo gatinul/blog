@@ -24,7 +24,7 @@ gulp.task('blogList', function () {
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./app/public/js'));
+    .pipe(gulp.dest('./app/public/build'));
 });
 gulp.task('tagList', function () {
   return browserify({
@@ -44,7 +44,7 @@ gulp.task('tagList', function () {
   .pipe(buffer())
   .pipe(sourcemaps.init({loadMaps: true}))
   .pipe(sourcemaps.write('./'))
-  .pipe(gulp.dest('./app/public/js'));
+  .pipe(gulp.dest('./app/public/build'));
 });
 gulp.task('default',['blogList', 'tagList'])
 
@@ -64,7 +64,7 @@ foal.task('typeBabel',function(fileName, outFileName){
   })
   .bundle()
   .pipe(source(outFileName+'.js'))
-  .pipe(gulp.dest('./app/public/js'));
+  .pipe(gulp.dest('./app/public/build'));
 })
 
 gulp.task('watch',function(cb){

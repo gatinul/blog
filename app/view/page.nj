@@ -60,6 +60,6 @@
     </div>
 </body>
 <script src="../public/js/evan.min.js"></script>
-<script src="../public/js/tagList.js"></script>
+<script src="../public/build/tagList.js"></script>
 
 </html>
