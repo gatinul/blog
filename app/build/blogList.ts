@@ -8,7 +8,7 @@ let totalPage:number = 1;
 const blogList: Array<object> = [];
 
 
-const past:JQuery<HTMLElement> = $('#past');
+const $past = $('#past')
 const future:JQuery<HTMLElement> = $('#future');
 const pagation:JQuery<HTMLElement> = $('#pagation');
 const ul:JQuery<HTMLElement> = $('.blogUl');
@@ -43,3 +43,5 @@ function showList(data:object, page:number){
     }
   }
 }
+
+
