@@ -15,10 +15,13 @@ export function fetch(url, params) {
 
 export default {
   /**
-   * 登录验证
+   * 获取文章列表
    * @param {object} param 
    */
   getBlogList(param) {
     return fetch("getBlogList", param);
   },
+  getPage(param) {
+    return fetch("getPage", param);
+  }
 };

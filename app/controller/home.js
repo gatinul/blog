@@ -3,15 +3,14 @@
 module.exports = app => {
   class HomeController extends app.Controller {
     * index(ctx) {
-      // const listInfo = yield ctx.service.mainService.list();
-      // const data = { list: listInfo };
-      // yield ctx.render('index.nj', data);
       yield ctx.render('index.nj');
     }
     * page(ctx) {
-      const markInfo = yield ctx.service.mark.readMd('Page.md');
-      const data = { markdown: markInfo };
-      yield ctx.render('page.nj', data);
+      yield ctx.render('page.nj');
+    }
+    * getPage(ctx) {
+      const markInfo = yield ctx.service.mark.readMd(ctx.request.body.md + '.md');
+      ctx.body = markInfo;
     }
     * getBlogList(ctx) {
       const data = yield ctx.service.mainService.selectAll('blog_tag_md');

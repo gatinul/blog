@@ -46,7 +46,7 @@
   left: 0;
   top: 33px;
 }
-a[disabled]{
+.main .disabled{
   cursor: not-allowed;
   filter: alpha(opacity=65);
   -webkit-box-shadow: none;

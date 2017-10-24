@@ -1,33 +1,97 @@
+// import {Observable, Observer} from 'rxjs'
+import api from '../api/index';
+var axios = require('axios')
+var Rx = require('@reactivex/rxjs');
 import * as $ from 'jquery'
-import * as moment from 'moment'
-import api from '../api/index'
-import axios from 'axios'
+import { disable, undisable } from './lib'
+var moment = require('moment')
 
-const currentPage:number = 1;
+interface GetBlogList {
+  ctoken:string;
+  currentPage:number
+  remark?:string
+}
+const ul:JQuery<HTMLElement> = $('.blogUl')
+const past:JQuery<HTMLElement> = $('#past')
+const future:JQuery<HTMLElement> = $('#future')
+
+let currentPage:number = 1;
 let totalPage:number = 1;
+const pagation:JQuery<HTMLElement> = $('#pagation');
+
+
 const blogList: Array<object> = [];
 
+const obj:GetBlogList = {
+  ctoken:'123456',
+  currentPage:currentPage
+}
 
-const $past = $('#past')
-const future:JQuery<HTMLElement> = $('#future');
-const pagation:JQuery<HTMLElement> = $('#pagation');
-const ul:JQuery<HTMLElement> = $('.blogUl');
+const $past = Rx.Observable.fromEvent(past, 'click')
+const $future = Rx.Observable.fromEvent(future, 'click')
 
-$(document).ready(function(){
-  api.getBlogList({
-    'ctoken':'123456',
-    'currentPage':currentPage
-  }).then(res=>{
-    totalPage = res.totalPage;
-    blogList.push(res.list);
-    pagation.text(currentPage+' / '+totalPage);
-    showList(blogList[0],currentPage);
+
+
+const init = Rx.Observable.create(observer => {
+  api.getBlogList(obj).then(res => {
+    observer.next(res)
+    observer.complete()
+  }).catch(err=>{
+    observer.error(err)
   })
-});
+})
 
+
+const past$ = $past.do(()=>{
+  console.log(currentPage)
+  if(currentPage>1){
+    currentPage = currentPage -1;
+    showList(blogList[0], currentPage)
+  }else{
+    console.log('already first')
+  }
+})
+const future$ = $future.do(()=>{
+  console.log(currentPage)
+  if(currentPage<totalPage){
+    currentPage = currentPage +1;
+    showList(blogList[0], currentPage)
+  }else{
+    console.log('already last')
+  }
+})
+
+const init$ = init
+  .do(res=>{
+    totalPage = res.totalPage;    
+    blogList.push(res.list);
+    showList(blogList[0],currentPage)
+  })
+  
+
+const app$ = init$.merge(past$, future$)
+  .mergeMap(() => {
+    return Rx.Observable.fromEvent($('.more'), 'click')
+      .do((e)=>{
+        const target = $(e.currentTarget)
+        console.log(target.text())
+        location.href=('http://localhost:7002/more/'+target.text())
+      })
+  })
+
+app$.subscribe()
+
+
+/**
+ * 渲染列表
+ * @param  {object} data
+ * @param  {number} page
+ */
 function showList(data:object, page:number){
+  pagation.text(page+' / '+totalPage);  
+  pageStyle(page,totalPage)
+  ul.empty()
   for(let i=7*(page-1);i<(7*page);i++){
-    console.log(data[i]);
     if(data[i]){ 
         let formateDate:string  = moment(data[i].create_time).toString();
         let dateArr: Array<string> = formateDate.split(' ');
@@ -36,12 +100,31 @@ function showList(data:object, page:number){
         ul.append(
           "<li>" +
           "<h3>"+ date +"</h3>" +
-          "<h2><a>"+ fileName +"</a></h2>" +
+          "<h2><a class=\"more\">"+ fileName +"</a></h2>" +
           "<blockquote>"+ data[i].tag_name +"</blockquote>" +
           "</li>"
         )  
     }
   }
 }
-
+/**
+ * 页面禁用样式
+ * @param  {number} page
+ * @param  {number} totalPage
+ */
+function pageStyle(page:number, totalPage:number){
+  if(page == totalPage && page == 1){
+    disable(future)
+    disable(past)
+  }else if(totalPage == page){
+    disable(future)
+    undisable(past)
+  }else if(page == 1){
+    disable(past)
+    undisable(future)
+  }else{
+    undisable(future)
+    undisable(past)
+  }
+}
 

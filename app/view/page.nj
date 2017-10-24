@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../public/css/style/left.css">
     <link rel="stylesheet" href="../public/css/md/md-common.css">
     <link rel="stylesheet" href="../public/css/md/github.css">
-    <link rel="stylesheet" href="../public/css/style/blogList.css">
     <style>
         canvas {
             position: absolute;
@@ -42,7 +41,7 @@
                                 <a href="/"><span>首页</span></a>
                             </li>
                             <li>
-                                <a href="/more"><span>专题</span></a>
+                                <a href="/more/hello"><span>专题</span></a>
                             </li>
                             <li>
                                 <a href="/"><span>归档</span></a>
@@ -58,9 +57,9 @@
         </div>
     </div>
     <div class="mid-col">
-        {{markdown | safe}} 
     </div>
 </body>
 <script src="../public/js/evan.min.js"></script>
+<script src="../public/js/tagList.js"></script>
 
 </html>

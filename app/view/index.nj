@@ -66,6 +66,6 @@
     </div>
 </body>
 <script src="../public/js/evan.min.js"></script>
-<script src="../public/js/tagList.js"></script>
+<script src="../public/js/blogList.js"></script>
 
 </html>
