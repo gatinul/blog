@@ -1,11 +1,14 @@
 language: node_js
 node_js:
-  - '6'
-  - '8'
+- '6'
+- '8'
 before_install:
-- openssl aes-256-cbc -K $encrypted_1966350e4078_key -iv $encrypted_1966350e4078_iv
-  -in id_rsa.enc -out ~/.ssh/id_rsa -d
+- openssl aes-256-cbc -K $encrypted_260f5982fb87_key -iv $encrypted_260f5982fb87_iv
+  -in id_rsa.enc -out ~\/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
 - echo -e "Host 59.110.233.80\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 after_success:
-- ssh root@59.110.233.80 'cd  /home/Blog && git pull origin master && npm run start'
+- tar -jcf Blog.tar.bz2 * --exclude=node_modules    # 打包并压缩代码
+- scp Blog.tar.bz2 root@59.110.233.80:/home/Blog  # 复制到生产服务器上
+- ssh root@59.110.233.80 'cd /home/Blog && tar -jxf Blog.tar.bz2'   # 解压
+- ssh root@59.110.233.80 'cd /home/Blog && npm run start'  # 重启pm2
