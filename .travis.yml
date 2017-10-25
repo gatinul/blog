@@ -3,7 +3,6 @@ node_js:
 - '6'
 - '8'
 script: npm run test-local
-install: travis_wait mvn install
 before_install:
 - openssl aes-256-cbc -K $encrypted_260f5982fb87_key -iv $encrypted_260f5982fb87_iv
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
@@ -14,4 +13,4 @@ after_success:
 - tar -jcf Blog.tar.bz2 * --exclude=node_modules
 - scp Blog.tar.bz2 root@59.110.233.80:/home/Blog
 - ssh root@59.110.233.80 'cd /home/Blog && tar -jxf Blog.tar.bz2'
-- ssh root@59.110.233.80 'cd /home/Blog && gulp && npm run start'
+- ssh root@59.110.233.80 'cd /home/Blog  && npm run start'
