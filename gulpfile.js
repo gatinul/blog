@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var tsify = require('tsify');
+var uglify = require('gulp-uglify')
 var sourcemaps = require('gulp-sourcemaps');
 var buffer = require('vinyl-buffer');
 var foal = require('gulp-foal')();
@@ -9,7 +10,7 @@ var foal = require('gulp-foal')();
 gulp.task('blogList', function () {
     return browserify({
         basedir: '.',
-        debug: true,
+        debug: false,
         entries: ['./app/build/blogList.ts'],
         cache: {},
         packageCache: {}
@@ -21,9 +22,6 @@ gulp.task('blogList', function () {
     })
     .bundle()
     .pipe(source('blogList.js'))
-    .pipe(buffer())
-    .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./app/public/build'));
 });
 gulp.task('tagList', function () {
@@ -41,9 +39,6 @@ gulp.task('tagList', function () {
   })
   .bundle()
   .pipe(source('tagList.js'))
-  .pipe(buffer())
-  .pipe(sourcemaps.init({loadMaps: true}))
-  .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest('./app/public/build'));
 });
 gulp.task('default',['blogList', 'tagList'])
