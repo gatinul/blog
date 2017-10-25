@@ -3,6 +3,7 @@ var axios = require('axios');
 var Rx = require('@reactivex/rxjs');
 import * as $ from 'jquery';
 
+
 const path:string = window.location.pathname;
 const arr:Array<string> = path.split('/');
 const fileName = arr[arr.length - 1];

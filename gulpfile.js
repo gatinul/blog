@@ -6,6 +6,7 @@ var uglify = require('gulp-uglify')
 var sourcemaps = require('gulp-sourcemaps');
 var buffer = require('vinyl-buffer');
 var foal = require('gulp-foal')();
+var babel = require('gulp-babel');
 
 gulp.task('blogList', function () {
     return browserify({
@@ -39,6 +40,9 @@ gulp.task('tagList', function () {
   })
   .bundle()
   .pipe(source('tagList.js'))
+  .pipe(buffer())
+  .pipe(babel())
+  .pipe(uglify())
   .pipe(gulp.dest('./app/public/build'));
 });
 gulp.task('default',['blogList', 'tagList'])
