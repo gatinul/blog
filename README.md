@@ -1,8 +1,10 @@
 # Blog
 
-My Blog 
+My Blog:[egg](https://eggjs.org) provides back-end services,the front-end use [typescript](http://www.typescriptlang.org), while [RXJS](http://reactivex.io/rxjs/) controls the data flow and state.
 
 ## QuickStart
+
+[preview](http://gatinul.org:7002)
 
 <!-- add docs here for user -->
 
@@ -13,7 +15,7 @@ see [egg docs][egg] for more detail.
 ```bash
 $ npm i
 $ npm run dev
-$ open http://localhost:7001/
+$ open http://localhost:7002/
 ```
 
 ### Deploy
