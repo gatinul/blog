@@ -1,10 +1,12 @@
 # Blog
 
+[![Build Status](https://www.travis-ci.org/gatinul/Blog.svg?branch=master)](https://travis-ci.org/gatinul/Blog)
+
 My Blog:[egg](https://eggjs.org) provides back-end services,the front-end use [typescript](http://www.typescriptlang.org), while [RXJS](http://reactivex.io/rxjs/) controls the data flow and state.
 
 ## QuickStart
 
-[preview](http://gatinul.org:7002)
+- [live](http://gatinul.org:7002)
 
 <!-- add docs here for user -->
 
