@@ -2,7 +2,7 @@ language: node_js
 node_js:
 - '6'
 - '8'
-script: npm run test-local
+script: npm run test
 before_install:
 - openssl aes-256-cbc -K $encrypted_260f5982fb87_key -iv $encrypted_260f5982fb87_iv
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
