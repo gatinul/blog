@@ -11,12 +11,6 @@ exports.mysql = {
   // 是否加载到 app 上，默认开启
   app: true,
   // 是否加载到 agent 上，默认关闭
-  agent: false,
-};
-
-exports.cluster = {
-  listen: {
-    port: 7002,
-  },
+  agent: true,
 };
 
