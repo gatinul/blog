@@ -12,3 +12,4 @@ run/
 *.map
 app/public/build
 app/md
+config.js
