@@ -2,3 +2,4 @@ coverage
 app/public/js/*.js
 gulpfile.js
 webpack.config.js
+node_modules
