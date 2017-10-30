@@ -20,6 +20,14 @@ module.exports = appInfo => {
       allowMethods: 'GET, HEAD, PUT, POST, DELETE, PATCH, OPTIONS',
       credentials: true,
     },
+    onerror: {
+      // 线上页面发生异常时，重定向到这个页面上
+      errorPageUrl: 'index.nj',
+    },
+    notfound: {
+      // 404时指向首页
+      pageUrl: 'index.nj',
+    },
   };
 
   // use for cookie sign key, should change to your own and keep security

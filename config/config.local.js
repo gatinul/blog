@@ -13,6 +13,6 @@ exports.mysql = {
   // 是否加载到 app 上，默认开启
   app: true,
   // 是否加载到 agent 上，默认关闭
-  agent: true,
+  agent: false,
 };
 
