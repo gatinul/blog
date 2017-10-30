@@ -8,8 +8,9 @@ before_install:
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
 - echo -e "Host 59.110.233.80\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-install:
-  - npm i npminstall && npminstall
+service:
+  - mysql
+install: true
 script:
   - TESTS=test/index.test.js npm test
 after_success:
