@@ -9,6 +9,12 @@ before_install:
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
 - echo -e "Host 59.110.233.80\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- mysql -e 'CREATE DATABASE myapp_test;'
+test:
+  adapter: mysql2
+  database: myapp_test
+  username: travis
+  encoding: utf8
 install:
 - npm i npminstall && npminstall
 script:
