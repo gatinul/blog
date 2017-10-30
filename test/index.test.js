@@ -1,22 +1,10 @@
 'use strict';
 
-const { app, assert } = require('egg-mock/bootstrap');
 
+const expect = require('chai').expect;
 
-describe('test/app/index.test.js', () => {
-
-
-  it('should assert', function* () {
-    const pkg = require('../package.json');
-    assert(app.config.keys.startsWith(pkg.name));
-
-    // const ctx = app.mockContext({});
-    // yield ctx.service.xx();
-  });
-
-  it('should GET /', function* () {
-    yield app.httpRequest()
-      .get('/')
-      .expect(200);
+describe('add test', function() {
+  it('short time test', function() {
+    expect([ 1, 2, 3 ]).to.include(2);
   });
 });
