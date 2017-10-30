@@ -7,7 +7,7 @@ exports.mysql = {
     host: db.host,
     port: db.port,
     user: db.user,
-    password: db.password,
+    password: '',
     database: db.database,
   },
   // 是否加载到 app 上，默认开启
