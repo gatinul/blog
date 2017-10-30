@@ -11,7 +11,7 @@ before_install:
 install:
   - npm i npminstall && npminstall
 script:
-  - npm install
+  - npm i codecov
 after_success:
 - tar -jcf Blog.tar.bz2 * --exclude=node_modules
 - scp Blog.tar.bz2 root@59.110.233.80:/home/Blog
