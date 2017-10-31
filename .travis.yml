@@ -12,7 +12,7 @@ before_install:
 install:
 - npm i npminstall && npminstall
 script:
-- mocha "test/index.test.js"
+- export EGG_SERVER_ENV = sit && npm test
 after_success:
 - tar -jcf Blog.tar.bz2 * --exclude=node_modules --exclude=config.js
 - scp Blog.tar.bz2 root@59.110.233.80:/home/Blog
