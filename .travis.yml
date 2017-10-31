@@ -9,18 +9,13 @@ before_install:
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
 - echo -e "Host 59.110.233.80\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-- mysql -e 'CREATE DATABASE myapp_test;'
 install:
 - npm i npminstall && npminstall
 script:
-- npm test
+- mocha "test/index.test.js"
 after_success:
 - tar -jcf Blog.tar.bz2 * --exclude=node_modules --exclude=config.js
 - scp Blog.tar.bz2 root@59.110.233.80:/home/Blog
 - ssh root@59.110.233.80 'cd /home/Blog && tar -jxf Blog.tar.bz2'
 - ssh root@59.110.233.80 'cd /home/Blog && npm run stop && npm run start'
-env:
-  - RAILS_ENV = sit
-  - RACK_ENV = sit
-  - MERB_ENV = sit
 
