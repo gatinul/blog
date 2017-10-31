@@ -3,14 +3,12 @@ node_js:
 - '6'
 - '8'
 services:
-  - mysql
+- mysql
 before_install:
 - openssl aes-256-cbc -K $encrypted_260f5982fb87_key -iv $encrypted_260f5982fb87_iv
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
 - echo -e "Host 59.110.233.80\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-- mysql -uroot -p''
-- mysql -e 'CREATE DATABASE Koa'
 install:
 - npm i npminstall && npminstall
 script:
@@ -20,4 +18,6 @@ after_success:
 - scp Blog.tar.bz2 root@59.110.233.80:/home/Blog
 - ssh root@59.110.233.80 'cd /home/Blog && tar -jxf Blog.tar.bz2'
 - ssh root@59.110.233.80 'cd /home/Blog && npm run stop && npm run start'
-
+env:
+  global:
+    secure: xIs/kb0Cm+UXLdRM5MtJLabDMvD0eLUnKI59w5senUYv7+IhcDKOoyZRl34nB9C56x9c7T+D3/ejwZlhqiEzL+8U+7zy3WPxy63/fnVCgyWTWDMmc3iDmQXZrrBlTu19xXGjj+KqF0GB+3EwI2Aygst0Bi5n/E6w/HHOH6fYBNmGTXxO5W003RKZItfSSpVAAv0ukEEVAKgUYbt+1AOAgrEunWn0+jd6k6gC07QVH+yLHXsoPLSuxeDArcyZbfomVFzh7YeiC3LSDSHApylHzzAhJfrY911oXlmzzs8+dHLMCZo50VvL94Prk76mssmLTO4XzE+iXZ/GC1wM1FpALJZbEYVnKkm9L7dkbRtmFWOQ51YSCEI610vgsEpbkuVGRY3VS1uJfymIBF9XYdpgH3cJCedJvRexBR0OCxo32TfCGuKa3Jb0nHbeJS5Ro0wRS+PxfRx7sXnk2VMGdVuazF/RA4bo6lWGBejy29k/SYBiUVVLccVFJ2lwYEGwACWsuTQsGPBqKm6oPTyAU/HJKqUt/I8FYQhCw31kgQQeGGYsQmSuKg85XlA2SABtfD0n41xfhtA49cpMhexlPYvwcIXk+3FeaIYJmVB+rO2ub0vhOy64gEWGe4/PDzTQuvLTAL7EHfXYuFcx/jfXHx5barmVgy9LDhpr2s65GK1u8J0=
