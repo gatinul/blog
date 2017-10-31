@@ -6,6 +6,8 @@ services:
 - mysql
 before_install:
 - openssl aes-256-cbc -K $encrypted_260f5982fb87_key -iv $encrypted_260f5982fb87_iv
+  -in .my.cnf.enc -out ~/.travis/.my.cnf -d
+- openssl aes-256-cbc -K $encrypted_260f5982fb87_key -iv $encrypted_260f5982fb87_iv
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
 - echo -e "Host 59.110.233.80\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
@@ -18,6 +20,3 @@ after_success:
 - scp Blog.tar.bz2 root@59.110.233.80:/home/Blog
 - ssh root@59.110.233.80 'cd /home/Blog && tar -jxf Blog.tar.bz2'
 - ssh root@59.110.233.80 'cd /home/Blog && npm run stop && npm run start'
-env: 
-  mysql:
-    - password:''
