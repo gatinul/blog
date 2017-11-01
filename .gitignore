@@ -11,4 +11,4 @@ run/
 *.swp
 *.map
 app/public/build
-app/md
+config.js

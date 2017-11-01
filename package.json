@@ -82,20 +82,23 @@
     "node": ">=6.0.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --port 7002",
+    "start": "export EGG_SERVER_ENV=prod && egg-scripts start --daemon --port 7002",
     "stop": "egg-scripts stop",
     "webpack": "webpack --config webpack.dev.js",
     "dev": "egg-bin dev --port 7002",
     "debug": "egg-bin debug",
     "test-prod": "npm run lint -- --fix && npm run test-local",
-    "test": "export EGG_SERVER_ENV=sit && egg-bin test",
+    "test": "egg-bin test",
+    "travis": "export EGG_SERVER_ENV=sit && egg-bin test",
     "cov": "egg-bin cov",
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
     "autod": "autod"
   },
   "ci": {
-    "version": "6, 8"
+    "version": "6, 8",
+    "license": true,
+    "services": "mysql"
   },
   "repository": {
     "type": "git",
