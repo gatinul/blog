@@ -89,7 +89,7 @@
     "debug": "egg-bin debug",
     "test-prod": "npm run lint -- --fix && npm run test-local",
     "test": "egg-bin test",
-    "travis": "export EGG_SERVER_ENV=sit && egg-bin test",
+    "travis": "export EGG_SERVER_ENV=sit && egg-bin cov",
     "cov": "egg-bin cov",
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",

@@ -14,7 +14,7 @@ before_install:
 install:
 - npm i npminstall && npminstall
 script:
-- npm run cov 
+- npm run travis 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 - tar -jcf Blog.tar.bz2 * --exclude=node_modules --exclude=config.js --exclude=app/md
