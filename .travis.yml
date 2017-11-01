@@ -12,7 +12,7 @@ before_install:
 install:
 - npm i npminstall && npminstall
 script:
-- export EGG_SERVER_ENV = sit && npm test
+- npm test
 after_success:
 - tar -jcf Blog.tar.bz2 * --exclude=node_modules --exclude=config.js
 - scp Blog.tar.bz2 root@59.110.233.80:/home/Blog
