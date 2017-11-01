@@ -16,7 +16,7 @@ install:
 script:
 - npm run travis 
 after_success:
-- tar -jcf Blog.tar.bz2 * --exclude=node_modules --exclude=app/md
+- tar -jcf Blog.tar.bz2 * --exclude=node_modules --exclude=config.js --exclude=app/md
 - scp Blog.tar.bz2 root@59.110.233.80:/home/Blog
 - ssh root@59.110.233.80 'cd /home/Blog && tar -jxf Blog.tar.bz2'
 - ssh root@59.110.233.80 'cd /home/Blog && npm run stop && npm run start'
