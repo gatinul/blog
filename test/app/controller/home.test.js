@@ -28,7 +28,7 @@ describe('test/app/controller/home.test.js', () => {
       app.mockCsrf();
       yield app.httpRequest()
         .post('/more/getPage')
-        .send({ md: 'woseen' })
+        .send({ md: 'hello' })
         .expect(200);
     });
   });
