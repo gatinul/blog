@@ -1,6 +1,11 @@
 # Blog
 
-My Blog 
+[![Build Status](https://www.travis-ci.org/gatinul/Blog.svg?branch=master)](https://travis-ci.org/gatinul/Blog)
+[![codecov](https://codecov.io/gh/gatinul/Blog/branch/master/graph/badge.svg)](https://codecov.io/gh/gatinul/Blog)
+[![codebeat badge](https://codebeat.co/badges/02f41e24-762d-4c06-9b93-053b081f6acf)](https://codebeat.co/projects/github-com-gatinul-blog-master)
+
+一个从零搭建的个人博客系统，服务端使用[EGG](https://eggjs.org)构建，前端使用[TYPESCRIPT](http://www.typescriptlang.org)编写，
+[RXJS](http://reactivex.io/rxjs/)控制数据流以及控制状态。
 
 ## 快速入门
 
