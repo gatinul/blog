@@ -16,3 +16,6 @@ exports.mysql = {
   agent: false,
 };
 
+exports.logger = {
+  level: 'INFO',
+};
