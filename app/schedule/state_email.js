@@ -1,4 +1,5 @@
 'use strict';
+
 const nodemailer = require('nodemailer');
 const email = require('../../private').email;
 const mailTransport = nodemailer.createTransport({
