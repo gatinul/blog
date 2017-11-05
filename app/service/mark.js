@@ -20,7 +20,7 @@ marked.setOptions({
 
 module.exports = app => {
   class Mark extends app.Service {
-    * readMd(fileName) {
+    async readMd(fileName) {
       const data = marked(fs.readFileSync(path.join(__dirname, '../md/', fileName), 'utf-8'));
       return data;
     }
