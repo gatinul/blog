@@ -1,4 +1,5 @@
 'use strict';
+const path = require('path');
 
 exports.database = {
   host: '127.0.0.1',
@@ -7,3 +8,4 @@ exports.database = {
   password: 'xiangyu',
   database: 'Koa',
 };
+exports.logPath = path.join(__dirname, './logs/Blog/common-error.log');
