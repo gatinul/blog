@@ -9,3 +9,4 @@ exports.database = {
   database: 'Koa',
 };
 exports.logPath = path.join(__dirname, './logs/Blog/common-error.log');
+exports.nginxLogPath = '/Applications/gatinul/logs/nginx/error.log';
