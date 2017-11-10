@@ -1,30 +1,5 @@
 'use strict';
 
-// var path = require('path');
-// var webpack = require('webpack')
-
-// module.exports = {
-//   entry: {
-//     blogList: './app/build/blogList.ts',
-//     tagList: './app/build/tagList.ts',
-//   },
-//   output: {
-//     path:path.join(__dirname,'app/public'),
-//     filename: '[name].js',
-//   },
-//   resolve: {
-//     extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js' ],
-//   },
-//   module: {
-//     loaders: [
-//       { test: /\.tsx?$/, loader: 'ts-loader' },
-//     ],
-//   },
-//   plugins:[
-//     new webpack.BannerPlugin('the file is created by gatinul'),
-//   ]
-// };
-
 
 const path = require('path');
 const merge = require('webpack-merge');

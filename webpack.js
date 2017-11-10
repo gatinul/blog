@@ -3,7 +3,7 @@
 module.exports = {
   entry: {
     blogList: [ './app/build/blogList.ts' ],
-    tagList: [ './app/build/tagList.ts' ],
+    pageList: [ './app/build/pageList.ts' ],
     vendor: [ 'moment', 'jquery', 'axios', '@reactivex/rxjs' ],
   },
   resolve: {
