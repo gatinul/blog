@@ -6,6 +6,7 @@
   "dependencies": {
     "@types/axios": "^0.14.0",
     "@types/jquery": "^3.2.15",
+    "amqplib": "^0.5.2",
     "autod": "^2.9.0",
     "autod-egg": "^1.0.0",
     "axios": "^0.16.2",
