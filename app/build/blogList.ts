@@ -98,7 +98,7 @@ function showList(data:object, page:number){
         let formateDate:string  = moment(data[i].create_time).toString();
         let dateArr: Array<string> = formateDate.split(' ');
         let date:string = dateArr[1] + ' ' + dateArr[2] + '，' + dateArr[3];
-        let fileName:string = data[i].md.split('.')[0];
+        let fileName:string = data[i].md.substring(0, data[i].md.lastIndexOf("."));
         ul.append(
           "<li>" +
           "<h3>"+ date +"</h3>" +
