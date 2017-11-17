@@ -50,7 +50,6 @@ class Elastic {
     });
   }
   update(data) {
-    console.log(data.get('mqUpdate'));
     if (data.get('mqUpdate')) {
       return true;
     }
@@ -70,7 +69,6 @@ class Elastic {
       const brr = arr[i].split('=');
       map.set(this.trim(brr[0]), this.trim(brr[1]));
     }
-    console.log('*' + map);
     return map;
   }
 }
