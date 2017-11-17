@@ -10,12 +10,28 @@ const esClient = new elasticsearch.Client({
 
 
 class Elastic {
+  constructor() {
+    this.result = {
+      success: false,
+      message: '',
+    };
+  }
   analysis(data) {
+    const self = this;
     const info = this.convert(data);
-    console.log(info);
-    if (info.get('eventType') === 'UPDATE') {
-      this.update(info);
+    if (info.get('eventType')) {
+      self.result.success = true;
+      switch (info.get('eventType')) {
+        case 'UPDATE' :
+          self.update(info);
+          return true;
+        default:
+          '123';
+      }
+    } else {
+      self.result.message = '无此事件类型';
     }
+    return self.result;
   }
   create() {
     esClient.create({
@@ -35,6 +51,9 @@ class Elastic {
   }
   update(data) {
     console.log(data.get('mqUpdate'));
+    if (data.get('mqUpdate')) {
+      return true;
+    }
     // esClient.update({
     //   index: data.index,
     //   type: data.type,

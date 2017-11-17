@@ -24,12 +24,20 @@ describe('test/app/controller/home.test.js', () => {
   });
 
   describe('POST /more/getPage', () => {
-    it('should post and response 200', async () => {
+    it('should post and response name gatinul', async () => {
       app.mockCsrf();
+      app.mockService('mark', 'readMd', async () => {
+        return {
+          name: 'gatinul',
+        };
+      });
       await app.httpRequest()
         .post('/more/getPage')
         .send({ md: 'hello' })
-        .expect(200);
+        .expect(200)
+        .expect({
+          name: 'gatinul',
+        });
     });
   });
   describe('POST /getBlogList', () => {

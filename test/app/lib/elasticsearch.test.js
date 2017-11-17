@@ -1,0 +1,28 @@
+'use strict';
+
+const { app, assert } = require('egg-mock/bootstrap');
+const Elastic = require('../../../app/lib/elasticsearch');
+
+describe('test/app/lib/elasticsearch.test.js', () => {
+  const es = new Elastic();
+  const data = 'info=hello world,mqUpdate=info,eventType=UPDATE';
+  it('should assert', async function() {
+    const pkg = require('../../../package.json');
+    assert(app.config.keys.startsWith(pkg.name));
+
+    // const ctx = app.mockContext({});
+    // yield ctx.service.xx();
+  });
+  it('should return map', () => {
+    assert(typeof (es.convert(data)) === 'object');
+    assert(es.update(es.convert(data)) === true);
+  });
+  describe('run analysis should success', () => {
+    before(function() {
+      es.analysis(data);
+    });
+    it('should result.success true', () => {
+      assert(es.result.success === true);
+    });
+  });
+});
