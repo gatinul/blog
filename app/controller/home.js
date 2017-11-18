@@ -15,7 +15,7 @@ module.exports = app => {
     async getBlogList(ctx) {
       const data = await ctx.service.mainService.selectAll('blog_tag_md');
       let total;
-      data.length / 7 > parseInt(data.length / 7) ? total = parseInt(data.length / 7) + 1 : total = parseInt(data.length / 7);
+      data.length / 6 > parseInt(data.length / 6) ? total = parseInt(data.length / 6) + 1 : total = parseInt(data.length / 6);
       ctx.body = {
         totalPage: total,
         list: data,
