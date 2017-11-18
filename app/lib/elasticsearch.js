@@ -26,7 +26,7 @@ class Elastic {
           self.update(info);
           break;
         default:
-          '123';
+          self.result.message = '事件类型无效';
       }
     } else {
       self.result.message = '无事件类型';

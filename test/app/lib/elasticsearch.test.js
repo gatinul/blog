@@ -33,4 +33,12 @@ describe('test/app/lib/elasticsearch.test.js', () => {
       assert(es.result.message === '无事件类型');
     });
   });
+  describe('run analysis should invalid', () => {
+    before(function() {
+      es.analysis('info=hello,eventType=CHANGE');
+    });
+    it('should result.message 事件类型无效', () => {
+      assert(es.result.message === '事件类型无效');
+    });
+  });
 });
