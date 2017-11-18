@@ -93,7 +93,7 @@ function showList(data:object, page:number){
   pagation.text(page+' / '+totalPage);  
   pageStyle(page,totalPage)
   ul.empty()
-  for(let i=7*(page-1);i<(7*page);i++){
+  for(let i=6*(page-1);i<(6*page);i++){
     if(data[i]){ 
         let formateDate:string  = moment(data[i].create_time).toString();
         let dateArr: Array<string> = formateDate.split(' ');

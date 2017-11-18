@@ -24,30 +24,14 @@ class Elastic {
       switch (info.get('eventType')) {
         case 'UPDATE' :
           self.update(info);
-          return true;
+          break;
         default:
           '123';
       }
     } else {
-      self.result.message = '无此事件类型';
+      self.result.message = '无事件类型';
     }
     return self.result;
-  }
-  create() {
-    esClient.create({
-      index: 'koa',
-      type: 'blog_tag_md',
-      id: '1',
-      body: {
-        tag_name: 'rebecca',
-        md: 'hello.md',
-        remark: '',
-        create_time: '2017-10-25 16:38:40',
-      },
-    }, function(error, response) {
-      if (error) { console.error(error); }
-      console.info(response);
-    });
   }
   update(data) {
     if (data.get('mqUpdate')) {

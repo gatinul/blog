@@ -25,4 +25,12 @@ describe('test/app/lib/elasticsearch.test.js', () => {
       assert(es.result.success === true);
     });
   });
+  describe('run analysis should fail', () => {
+    before(function() {
+      es.analysis('info=hello');
+    });
+    it('should result.message 无事件类型', () => {
+      assert(es.result.message === '无事件类型');
+    });
+  });
 });

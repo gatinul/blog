@@ -94,7 +94,7 @@
     "test-prod": "npm run lint -- --fix && npm run test-local",
     "test": "egg-bin test",
     "travis": "export EGG_SERVER_ENV=sit && npm run cov",
-    "cov": "egg-bin cov",
+    "cov": "egg-bin cov '--x=agent.js'",
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
     "autod": "autod"
