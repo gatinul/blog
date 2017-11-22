@@ -24,6 +24,8 @@ module.exports = app => {
           self.update(info, self.getField(info));
         } else if (info.get('eventType') === 'INSERT') {
           self.insert(info, self.getField(info));
+        } else if (info.get('eventType') === 'DELETE') {
+          self.delete(info);
         } else {
           self.result.success = false;
           self.result.message = '事件类型无效';
@@ -33,14 +35,23 @@ module.exports = app => {
       }
       return self.result;
     }
+    delete(data) {
+      esClient.delete({
+        index: data.get('index'),
+        type: data.get('type'),
+        id: data.get('id'),
+      }, function(err, res) {
+        if (err) {
+          console.log(err);
+        }
+      });
+    }
     insert(data, obj) {
       esClient.create({
         index: data.get('index'),
         type: data.get('type'),
         id: data.get('id'),
-        body: {
-          doc: obj,
-        },
+        body: obj,
       }, function(err, res) {
         if (err) {
           app.logger.error(new Error(err));
