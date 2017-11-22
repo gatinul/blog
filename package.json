@@ -22,9 +22,10 @@
     "browserify": "^14.5.0",
     "chai": "^4.1.2",
     "codecov": "^3.0.0",
-    "egg": "^1.8.0",
+    "egg": "^1.11.0",
     "egg-ci": "^1.8.0",
     "egg-cors": "^1.2.0",
+    "egg-logger": "^1.6.0",
     "egg-mock": "^3.12.0",
     "egg-mysql": "^3.0.0",
     "egg-scripts": "^1.2.0",
@@ -94,10 +95,11 @@
     "test-prod": "npm run lint -- --fix && npm run test-local",
     "test": "egg-bin test",
     "travis": "export EGG_SERVER_ENV=sit && npm run cov",
-    "cov": "egg-bin cov '--x=agent.js'",
+    "cov": "egg-bin cov '--x=app.js'",
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
-    "autod": "autod"
+    "autod": "autod",
+    "show": "open coverage/lcov-report/index.html"
   },
   "ci": {
     "version": "6, 8",
