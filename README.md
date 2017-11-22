@@ -2,7 +2,6 @@
 
 [![Build Status](https://www.travis-ci.org/gatinul/Blog.svg?branch=master)](https://travis-ci.org/gatinul/Blog)
 [![codecov](https://codecov.io/gh/gatinul/Blog/branch/master/graph/badge.svg)](https://codecov.io/gh/gatinul/Blog)
-[![codebeat badge](https://codebeat.co/badges/02f41e24-762d-4c06-9b93-053b081f6acf)](https://codebeat.co/projects/github-com-gatinul-blog-master)
 
 My Blog:[EGG](https://eggjs.org) provides back-end services,the front-end use [TYPESCRIPT](http://www.typescriptlang.org), while [RXJS](http://reactivex.io/rxjs/) controls the data flow and state.
 
