@@ -7,7 +7,13 @@ var sourcemaps = require('gulp-sourcemaps');
 var buffer = require('vinyl-buffer');
 var foal = require('gulp-foal')();
 var babel = require('gulp-babel');
+var cleanCSS = require('gulp-clean-css');
 
+gulp.task('minicss', () => {
+    return gulp.src('./app/public/css/*/*.css')
+      .pipe(cleanCSS({compatibility: 'ie8'}))
+      .pipe(gulp.dest('./app/public/style'));
+});
 gulp.task('blogList', function () {
     return browserify({
         basedir: '.',
