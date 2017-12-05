@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>茶蘼</title>
+    <link rel="stylesheet" href="../public/build/semantic.min.css">
     <link rel="stylesheet" href="../public/style/style/left.css">
     <link rel="stylesheet" href="../public/style/style/blogList.css">
     <style>
@@ -56,6 +57,13 @@
         </div>
     </div>
     <div class="mid-col">
+        <div class="ui search">
+            <div class="ui icon input">
+                <input class="prompt" id="searchText" type="text" placeholder="搜索文章……">
+                <i class="search icon"></i>
+            </div>
+            <div class="results"></div>
+        </div>
         <div class="main">
             <ul class='blogUl'>
             </ul>
@@ -65,6 +73,8 @@
         </div>
     </div>
 </body>
+<script src="../public/build/jquery-1.11.3.min.js"></script>
+<script src="../public/build/semantic.min.js"></script>
 <script src="../public/js/evan.min.js"></script>
 <script src="../public/build/manifest.js"></script>
 <script src="../public/build/vendor.js"></script>
