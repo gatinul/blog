@@ -21,6 +21,13 @@ module.exports = app => {
         list: data,
       };
     }
+    async search(ctx) {
+      const condition = ctx.request.body;
+      console.log(condition);
+    }
+    async searchAll(ctx) {
+      await ctx.render('search.nj');
+    }
   }
   return HomeController;
 };

@@ -11,7 +11,7 @@ run/
 *.swp
 *.map
 app/public/build
+app/public/style
 private.js
 app/schedule/state_email.js
 test/app/schedule/state_email.test.js
-app/public/css

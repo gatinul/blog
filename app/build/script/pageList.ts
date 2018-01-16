@@ -1,4 +1,4 @@
-import api from '../api/index';
+import api from '../../api/index';
 var axios = require('axios');
 var Rx = require('@reactivex/rxjs');
 import * as $ from 'jquery';

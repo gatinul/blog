@@ -1,9 +1,9 @@
 // import {Observable, Observer} from 'rxjs'
-import api from '../api/index';
+import api from '../../api/index';
 var axios = require('axios')
 var Rx = require('@reactivex/rxjs');
 import * as $ from 'jquery'
-import { disable, undisable } from './lib'
+import { disable, undisable, esSearch } from './lib'
 var moment = require('moment')
 
 interface GetBlogList {
@@ -15,6 +15,7 @@ const ul:JQuery<HTMLElement> = $('.blogUl')
 const past:JQuery<HTMLElement> = $('#past')
 const future:JQuery<HTMLElement> = $('#future')
 const path:string = window.location.toString();
+const search:JQuery<HTMLElement> = $('#searchText')
 
 
 let currentPage:number = 1;
@@ -31,6 +32,7 @@ const obj:GetBlogList = {
 
 const $past = Rx.Observable.fromEvent(past, 'click')
 const $future = Rx.Observable.fromEvent(future, 'click')
+const $search = Rx.Observable.fromEvent(search, 'keyup')
 
 
 
@@ -43,7 +45,9 @@ const init = Rx.Observable.create(observer => {
   })
 })
 
-
+const search$ = $search
+  .map((e) => $(e.target).val())
+  .map(esSearch)
 const past$ = $past.do(()=>{
   console.log(currentPage)
   if(currentPage>1){
@@ -71,7 +75,7 @@ const init$ = init
   })
   
 
-const app$ = init$.merge(past$, future$)
+const app$ = init$.merge(past$, future$, search$)
   .mergeMap(() => {
     return Rx.Observable.fromEvent($('.more'), 'click')
       .do((e)=>{

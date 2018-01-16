@@ -1,0 +1,7 @@
+.mid-col .container{
+  margin:30px auto;
+}
+.mid-col .ui.input{
+  width: 100%;
+  height: 3.5rem;
+}

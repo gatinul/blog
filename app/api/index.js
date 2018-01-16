@@ -23,5 +23,8 @@ export default {
   },
   getPage(param) {
     return fetch("getPage", param);
+  },
+  search(param) {
+    return fetch("search", param);
   }
 };
