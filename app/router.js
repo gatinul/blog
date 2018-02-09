@@ -7,4 +7,5 @@ module.exports = app => {
   app.post('/getBlogList', 'home.getBlogList');
   app.post('/more/getPage', 'home.getPage');
   app.post('/search', 'home.search');
+  app.post('/mini/middleApi', 'mini.middleApi');
 };
