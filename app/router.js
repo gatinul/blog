@@ -8,4 +8,6 @@ module.exports = app => {
   app.post('/more/getPage', 'home.getPage');
   app.post('/search', 'home.search');
   app.post('/mini/middleApi', 'mini.middleApi');
+  app.get('/mini/getAccessToken', 'mini.getAccessToken');
+  app.post('/mini/getSessionKey', 'mini.getSessionKey');
 };

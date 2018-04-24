@@ -8,7 +8,9 @@ module.exports = app => {
         success: false,
         message: '',
       };
-      const res = await this.fetch(ctx.request.body.url, ctx.request.body);
+      const url = ctx.request.body.url;
+      console.log(url);
+      const res = await this.fetch(url, ctx.request.body);
       if (res.success) {
         result.success = true;
         result.message = res.message;
@@ -18,6 +20,15 @@ module.exports = app => {
         this.logger.error('*****小程序：' + res.message + '*****');
       }
       ctx.body = result;
+    }
+    async getAccessToken(ctx) {
+      const accessToken = await this.fetch('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx3ae282ed1304c5b2&secret=fa274024b22f7a3beafffd08a1bdf51e');
+      ctx.body = accessToken;
+    }
+    async getSessionKey(ctx) {
+      const code = ctx.request.body.code;
+      const sessionKey = await this.fetch('https://api.weixin.qq.com/sns/jscode2session?appid=wx3ae282ed1304c5b2&secret=fa274024b22f7a3beafffd08a1bdf51e&js_code=' + code + '&grant_type=authorization_code');
+      ctx.body = sessionKey;
     }
     async fetch(path, data) {
       return new Promise(function(resolve) {
