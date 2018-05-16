@@ -15,3 +15,4 @@ app/public/style
 private.js
 app/schedule/state_email.js
 test/app/schedule/state_email.test.js
+app/controller/mini.js
